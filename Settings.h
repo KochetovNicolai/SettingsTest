@@ -7,5 +7,5 @@ struct Settings
     SettingInt max_threads;
     SettingInt max_block_size;
     SettingString comment;
-    SettingString comment2;
+    //SettingString comment2;
 };

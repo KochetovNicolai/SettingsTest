@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Settings_fwd.h"
+#include <memory>
 
 struct SettingInt
 {
@@ -18,5 +18,22 @@ struct SettingString
     SettingString & operator=(std::string x) { value = std::move(x); return *this; }
 };
 
+struct Settings;
 using SettingIntTrait = SettingInt Settings::*;
 using SettingStringTrait = SettingString Settings::*;
+
+struct SettingsPtr;
+SettingInt & operator->*(const SettingsPtr & settings, SettingIntTrait t);
+SettingString & operator->*(const SettingsPtr & settings, SettingStringTrait t);
+
+struct SettingsPtr
+{
+    std::shared_ptr<Settings> impl;
+
+    SettingInt & operator[](SettingIntTrait t) const;
+    SettingString & operator[](SettingStringTrait t) const;
+};
+
+SettingsPtr createSettings();
+
+

@@ -3,4 +3,4 @@ project(settings)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(settings main.cpp Settings.h Settings_fwd.h SettingsTraits.h Settings.cpp updateComment.cpp updateMaxBlockSize.cpp)
+add_executable(settings main.cpp Settings.h SettingsTraits.h Settings.cpp updateComment.cpp updateMaxBlockSize.cpp)

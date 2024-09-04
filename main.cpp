@@ -12,7 +12,7 @@ int main() {
     updateComment(settings);
     updateMaxBlockSize(settings);
 
-    std::cout << "comment " << std::string(settings.get()->*comment) << std::endl;
-    std::cout << "max_block_size " << settings.get()->*max_block_size << std::endl;
+    std::cout << "comment " << std::string(settings[comment]) << std::endl;
+    std::cout << "max_block_size " << settings->*max_block_size << std::endl;
     return 0;
 }
