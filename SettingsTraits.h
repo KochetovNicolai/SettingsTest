@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <memory>
+#include <vector>
 
 struct SettingInt
 {
@@ -19,8 +20,17 @@ struct SettingString
 };
 
 struct Settings;
-using SettingIntTrait = SettingInt Settings::*;
-using SettingStringTrait = SettingString Settings::*;
+struct SettingIntTrait
+{
+    std::vector<SettingInt> Settings::* arr;
+    int pos;
+};
+
+struct SettingStringTrait
+{
+    std::vector<SettingString> Settings::* arr;
+    int pos;
+};
 
 struct SettingsPtr;
 SettingInt & operator->*(const SettingsPtr & settings, SettingIntTrait t);

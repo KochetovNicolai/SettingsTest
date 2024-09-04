@@ -4,8 +4,6 @@
 
 struct Settings
 {
-    SettingInt max_threads;
-    SettingInt max_block_size;
-    SettingString comment;
-    //SettingString comment2;
+    std::vector<SettingInt> int_settings;
+    std::vector<SettingString> string_settings;
 };
